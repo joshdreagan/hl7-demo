@@ -1,0 +1,1 @@
+INSERT INTO example.CONTACTS VALUES ('W', 'admin@epic.com');

@@ -1,0 +1,57 @@
+# Servlet Container & Health Setup
+server:
+  address: 0.0.0.0
+management:
+  server:
+    address: 0.0.0.0
+    port: 8081
+  endpoint:
+    health:
+      enabled: true
+    
+# Spring Boot
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3307/example?autoReconnect=true&useSSL=false
+    username: root
+    password: Abcd1234
+    schema: classpath:sql/schema.sql
+    schemaUsername: ${spring.datasource.username}
+    schemaPassword: ${spring.datasource.password}
+    data: classpath:sql/data.sql
+    dataUsername: ${spring.datasource.username}
+    dataPassword: ${spring.datasource.password}
+    initializationMode: ALWAYS
+
+# Camel Spring Boot
+camel:
+  springboot:
+    name: CamelHL7Gateway
+    stream-caching-enabled: true
+  component:
+    fhir:
+      configuration:
+        server-url: http://localhost:7070/hapi-fhir-jpaserver/baseStu3
+
+# Logging
+logging:
+  config: classpath:logback.xml
+  level:
+    #org.apache.camel: DEBUG
+    org.apache.camel.examples: DEBUG
+    
+# Application
+application:
+  ingest:
+    file:
+      directory: target/input
+    mllp:
+      port: 2575
+    http:
+      path:
+  data-correction:
+    path: 'kie-server/services/rest/server/containers/HL7v2_1.0.0/processes/HL7v2.FixMessage/instances'
+    username: pamAdmin
+    password: redhatpam1!
+    callback-url: 'http://localhost:9090/camel/hl7v2'
+    

@@ -1,0 +1,3 @@
+[submodule "rhpam-hl7v2"]
+	path = rhpam-hl7v2
+	url = git@github.com:lawnjarae/rhpam-hl7v2.git

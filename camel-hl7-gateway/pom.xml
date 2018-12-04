@@ -18,7 +18,7 @@
 
     <fabric8-maven-plugin.version>3.5.39</fabric8-maven-plugin.version>
 
-    <camel.version>2.23.0-SNAPSHOT</camel.version>
+    <camel.version>2.23.0</camel.version>
     <spring-boot.version>2.1.0.RELEASE</spring-boot.version>
   </properties>
 

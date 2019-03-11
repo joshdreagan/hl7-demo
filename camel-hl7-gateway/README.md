@@ -25,7 +25,7 @@ oc new-project hl7-demo
 oc create -f src/main/kube/serviceaccount.yml
 oc create -f src/main/kube/configmap.yml
 oc create -f src/main/kube/secret.yml
-oc secrets add sa/primerica-uc2-sa secret/camel-hl7-gateway-secret
+oc secrets add sa/camel-hl7-gateway-sa secret/camel-hl7-gateway-secret
 oc policy add-role-to-user view system:serviceaccount:hl7-demo:camel-hl7-gateway-sa
 mvn clean install fabric8:deploy
 ```
